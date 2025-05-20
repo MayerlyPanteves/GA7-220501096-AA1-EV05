@@ -85,37 +85,13 @@
       background-color: #2980b9;
       transform: scale(1.05);
     }
-    .dark-theme {
-      background-color: #2c3e50;
-      color: #ecf0f1;
+    .comparison-table td span {
+      transition: all 0.2s ease;
     }
-    .dark-theme .container {
-      background-color: #34495e;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    }
-    .dark-theme h1 {
-      color: #ecf0f1;
-    }
-    .dark-theme .comparison-table th {
-      background-color: #2980b9;
-    }
-    .dark-theme .comparison-table tr:nth-child(odd) {
-      background-color: #4a6278;
-    }
-    .dark-theme .comparison-table tr:nth-child(even) {
-      background-color: #3d5166;
-    }
-    .dark-theme .local {
-      background-color: #2a7f55 !important;
-    }
-    .dark-theme .remote {
-      background-color: #2a638f !important;
-    }
-    .dark-theme .feature {
-      color: #ecf0f1;
-    }
-    .dark-theme .hover-effect tr:hover {
-      background-color: #1e5378 !important;
+    .comparison-table td span:hover {
+      font-weight: bold;
+      display: inline-block;
+      transform: scale(1.03);
     }
   </style>
 </head>
@@ -134,72 +110,64 @@
     <tbody>
     <tr>
       <td class="feature"><span class="emoji">📍</span>Ubicación</td>
-      <td class="local">Almacenado en la máquina local del desarrollador</td>
-      <td class="remote">Almacenado en un servidor en línea (GitHub, GitLab, Bitbucket)</td>
+      <td class="local"><span>Almacenado en la máquina local del desarrollador</span></td>
+      <td class="remote"><span>Almacenado en un servidor en línea (GitHub, GitLab, Bitbucket)</span></td>
     </tr>
     <tr>
       <td class="feature"><span class="emoji">🔄</span>Sincronización</td>
-      <td class="local">No necesita conexión a internet</td>
-      <td class="remote">Requiere conexión a internet para sincronizarse</td>
+      <td class="local"><span>No necesita conexión a internet</span></td>
+      <td class="remote"><span>Requiere conexión a internet para sincronizarse</span></td>
     </tr>
     <tr>
       <td class="feature"><span class="emoji">👥</span>Colaboración</td>
-      <td class="local">Limitada a un solo usuario/máquina</td>
-      <td class="remote">Permite trabajo en equipo y colaboración múltiple</td>
+      <td class="local"><span>Limitada a un solo usuario/máquina</span></td>
+      <td class="remote"><span>Permite trabajo en equipo y colaboración múltiple</span></td>
     </tr>
     <tr>
       <td class="feature"><span class="emoji">🔒</span>Seguridad</td>
-      <td class="local">Vulnerable a pérdida si la máquina local falla</td>
-      <td class="remote">Mayor seguridad con respaldos en servidores</td>
+      <td class="local"><span>Vulnerable a pérdida si la máquina local falla</span></td>
+      <td class="remote"><span>Mayor seguridad con respaldos en servidores</span></td>
     </tr>
     <tr>
       <td class="feature"><span class="emoji">🔍</span>Visibilidad</td>
-      <td class="local">Solo visible para el usuario local</td>
-      <td class="remote">Visible para todos los miembros del equipo y posiblemente público</td>
+      <td class="local"><span>Solo visible para el usuario local</span></td>
+      <td class="remote"><span>Visible para todos los miembros del equipo y posiblemente público</span></td>
     </tr>
     <tr>
       <td class="feature"><span class="emoji">🛠️</span>Comandos principales</td>
-      <td class="local">git init, git add, git commit, git branch, git checkout</td>
-      <td class="remote">git clone, git push, git pull, git fetch, git merge</td>
+      <td class="local"><span>git init</span>, <span>git add</span>, <span>git commit</span>, <span>git branch</span>, <span>git checkout</span></td>
+      <td class="remote"><span>git clone</span>, <span>git push</span>, <span>git pull</span>, <span>git fetch</span>, <span>git merge</span></td>
     </tr>
     <tr>
       <td class="feature"><span class="emoji">🏠</span>Repositorio</td>
-      <td class="local">Carpeta .git en proyecto local</td>
-      <td class="remote">Directorio hospedado en servidor</td>
+      <td class="local"><span>Carpeta .git en proyecto local</span></td>
+      <td class="remote"><span>Directorio hospedado en servidor</span></td>
     </tr>
     <tr>
       <td class="feature"><span class="emoji">🔁</span>Flujo de trabajo</td>
-      <td class="local">Gestiona cambios localmente con commits y branches</td>
-      <td class="remote">Facilita código compartido, pull requests y revisiones</td>
+      <td class="local"><span>Gestiona cambios localmente con commits y branches</span></td>
+      <td class="remote"><span>Facilita código compartido, pull requests y revisiones</span></td>
     </tr>
     <tr>
       <td class="feature"><span class="emoji">🔄</span>Historial</td>
-      <td class="local">Historial completo disponible sin conexión</td>
-      <td class="remote">Interfaz web para visualizar historial y comparar versiones</td>
+      <td class="local"><span>Historial completo disponible sin conexión</span></td>
+      <td class="remote"><span>Interfaz web para visualizar historial y comparar versiones</span></td>
     </tr>
     <tr>
       <td class="feature"><span class="emoji">✅</span>Uso óptimo</td>
-      <td class="local">Desarrollo diario y experimentación</td>
-      <td class="remote">Distribución y colaboración</td>
+      <td class="local"><span>Desarrollo diario y experimentación</span></td>
+      <td class="remote"><span>Distribución y colaboración</span></td>
     </tr>
     </tbody>
   </table>
 
   <div class="button-container">
-    <button id="theme-toggle" class="theme-button">Cambiar tema <span class="emoji">🌓</span></button>
+    <!-- Eliminado el botón para cambiar tema -->
   </div>
 </div>
 
 <script>
-  document.getElementById('theme-toggle').addEventListener('click', function() {
-    document.body.classList.toggle('dark-theme');
-
-    if (document.body.classList.contains('dark-theme')) {
-      this.innerHTML = 'Tema claro <span class="emoji">☀️</span>';
-    } else {
-      this.innerHTML = 'Tema oscuro <span class="emoji">🌓</span>';
-    }
-  });
+  // Eliminado el script para cambiar entre tema claro y oscuro
 
   // Añadir efectos a las filas de la tabla
   const rows = document.querySelectorAll('.comparison-table tbody tr');
